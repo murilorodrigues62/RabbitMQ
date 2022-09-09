@@ -40,8 +40,16 @@ TTL é o tempo de vida da mensagem, que pode ser removida após x tempo.
 ### DLQ - Dead letter queues
  Mensagens que não foram entregues com sucesso podem ser configuradas para uma DLQ, que é outra fila que pode ser consumida para resolver problemas ocorridos na leitura da mensagem.
  
- 
+ ## RabbitMQ x Kafka
+ - Kafka permite multiplos consumers de uma mesma mensagem, por padrão RabbbitMQ envia mensagem para apenas um consumer.
+ - Kafka trabalha com mensagens strings ou binárias
+ - RabbitMQ faz push das mensagens da fila para os consumers, no Kafka os consumers é que fazem pull das mensagens.
+ - RabbitMQ remove as mensagens que são confirmadas como recebidas, já o Kafka armazena as mensagens como log.
+ - RabbitMQ permite customizar roteamento das mensagens, Kafka só manda direto para o tópico.+
+   
  Fontes: 
- - [RabbitMQ FullCicle](https://youtu.be/YotzziZzKJo)
+ - [RabbitMQ Documentation](https://www.rabbitmq.com/documentation.html) 
  - [RabbitMQ and Messaging Concepts](https://ambevtech.udemy.com/course-dashboard-redirect/?course_id=2526432)
+ - [RabbitMQ - FullCycle](https://youtu.be/YotzziZzKJo)
+ - [RabbitMQ vs Kafka - FullCycle](https://www.youtube.com/watch?v=wq6v2ugPSDU) 
 
