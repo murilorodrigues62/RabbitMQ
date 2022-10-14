@@ -45,11 +45,14 @@ TTL é o tempo de vida da mensagem, que pode ser removida após x tempo.
  - Kafka trabalha com mensagens strings ou binárias
  - RabbitMQ faz push das mensagens da fila para os consumers, no Kafka os consumers é que fazem pull das mensagens.
  - RabbitMQ remove as mensagens que são confirmadas como recebidas, já o Kafka armazena as mensagens como log.
- - RabbitMQ permite customizar roteamento das mensagens, Kafka só manda direto para o tópico.+
+ - RabbitMQ permite customizar roteamento das mensagens, Kafka só manda direto para o tópico.
+ - O ideal é trabalhar com RabbitMQ para envio de **mensagens**, que são recados com poucas informações. Já no Kafka o ideal é usar para **stream de dados**, onde se tem fluxo de dados completos. Até dá para usar o Kafka como mensageria mas ele tem uma grande estrutura que acabaria não sendo necessária.
+ - Kafka tem muitas outras opções como o **Kafka Connect** que faz integração de dados sem precisar programar.
+ - Kafka de forma geral é um banco de dados imutável de logs.
+ - Kafka pode ser comparado mais com AWS Kinesis e Apache Pulsar. Já RabbitMQ tem como concorrente o AWS SQS e Service Bus.
    
  Fontes: 
  - [RabbitMQ Documentation](https://www.rabbitmq.com/documentation.html) 
  - [RabbitMQ and Messaging Concepts](https://ambevtech.udemy.com/course-dashboard-redirect/?course_id=2526432)
  - [RabbitMQ - FullCycle](https://youtu.be/YotzziZzKJo)
- - [RabbitMQ vs Kafka - FullCycle](https://www.youtube.com/watch?v=wq6v2ugPSDU) 
-
+ - [RabbitMQ vs Kafka - FullCycle](https://youtu.be/wq6v2ugPSDU) 
