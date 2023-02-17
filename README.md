@@ -50,9 +50,35 @@ TTL é o tempo de vida da mensagem, que pode ser removida após x tempo.
  - Kafka tem muitas outras opções como o **Kafka Connect** que faz integração de dados sem precisar programar.
  - Kafka de forma geral é um banco de dados imutável de logs.
  - Kafka pode ser comparado mais com AWS Kinesis e Apache Pulsar. Já RabbitMQ tem como concorrente o AWS SQS e Service Bus.
+
+## Outros serviços de Mensagem da Microsoft
+
+- **Event Grid** - Como Triggers de um banco, é usado para disparar ações a cada alteração.
+- **Event Hubs** - Big Data pipeline, streaming de uma grande quantidade de mensagens, como em IOT.
+- **Storage Queues** - Menos funcionalidades que o Service Bus mas suporta mais que 80gb.
+- **Service Bus** - Para mensagens empresariais que tem valor de negócio, exemplo, aprovação de nota fiscal, troca de cartão de crédito. Quando a sequência é importante. Garante FIFO e tem muitas outras funcionalidades que o Storage Queues
+
+## Service Bus
+
+Serviço de barramento de mensagens da Microsoft baseado em uso de filas e tópicos.
+Tudo é agrupado em uma namespace: Queues, Topics and Subscriptions.
+
+### Queues (filas)
+
+Filas armazenam mensagens até que uma aplicação esteja habilitada para receber e processar a mensagem.
+A mensagem fica salva na cloud, sem que o Sender se preocupe se há um Receiver.
+Uma fila é um armazenamento temporário para mensagens, pois a mensagens são entregue em modo pull. O Receiver é quem deve perguntar sobre a mensagem, não recebe automaticamente. As mensagens são entregue  em ordem FIFO.
+É possível adicionar varias instâncias concorrentes de Receivers para poder escalar a aplicação.
+
+### Topics e Subscriptions
+
+Tópico é igual à fila porém ele pode ter múltiplas subscrições, assim a mesma mensagem pode ser entre para vários subscriptions, que são notificados quando há uma mensagem.       
+A cada mensagem lida, os Receivers devem marca-la como Complete para que a mesma seja apagada da fila ou subscrição.
+
    
  Fontes: 
  - [RabbitMQ Documentation](https://www.rabbitmq.com/documentation.html) 
  - [RabbitMQ and Messaging Concepts](https://ambevtech.udemy.com/course-dashboard-redirect/?course_id=2526432)
  - [RabbitMQ - FullCycle](https://youtu.be/YotzziZzKJo)
  - [RabbitMQ vs Kafka - FullCycle](https://youtu.be/wq6v2ugPSDU) 
+ - [Learn Azure Service Bus](https://www.linkedin.com/learning/azure-service-bus-19192316) 
